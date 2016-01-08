@@ -7,10 +7,10 @@ import (
 	"golang.org/x/net/context"
 )
 
-func UploadStaticImage(ctx context.Context, fileName string, data io.Reader) error {
+func UploadStaticImage(ctx context.Context, fileName string, data io.Reader) (string, error) {
 	c, _ := FromContext(ctx)
-	_, err := c.UploadStaticImage(fileName, data, "")
-	return err
+	public_id, err := c.UploadStaticImage(fileName, data, "")
+	return public_id, err
 }
 
 func Resources(ctx context.Context) ([]*gocloud.Resource, error) {
