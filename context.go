@@ -17,7 +17,7 @@ func NewContext(ctx context.Context, uri string) context.Context {
 		return ctx
 	}
 
-	service, err := gocloud.Dial(cURI.String())
+	service, err := gocloud.Dial(cURI.String(), ctx)
 	if err != nil {
 		return ctx
 	}
